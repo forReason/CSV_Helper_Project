@@ -97,10 +97,14 @@ namespace CSV_Helper_Project
         /// <param name="path"></param>
         /// <param name="hasHeaders"></param>
         /// <param name="delimiter"></param>
-        public void LoadFromFile(string path, bool hasHeaders = false, char delimiter = ';')
+        /// <param name="append">determines if the table should be cleared before loading or data should be appended</param>
+        public void LoadFromFile(string path, bool hasHeaders = false, char delimiter = ';', bool append = false)
         {
             if (!File.Exists(path)) return;
-            CSV_Table = new List<List<string>>();
+            if (!append)
+            {
+                CSV_Table = new List<List<string>>();
+            }
             List<string[]> parsedCells = parser.ParseCSVFile(path, delimiter);
             if (parsedCells == null || parsedCells.Count <= 0) return;
             int startIndex = 0;
