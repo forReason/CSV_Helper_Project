@@ -16,6 +16,16 @@ namespace CSV_Helper_Project
         Parser parser = new Parser();
         List<string> Headers = new List<string>();
         List<List<string>> CSV_Table = new List<List<string>>();
+        public int Length { get { return CSV_Table.Count; } }
+        public int ColumnLength
+        {
+            get
+            {
+                if (this.HasHeaders) return Headers.Count;
+                else if (CSV_Table.Count == 0) return 0;
+                else return CSV_Table[0].Count;
+            }
+        }
         private bool _HasHeaders;
         /// <summary>
         /// returns if the table has headers. When setting, Header row will be automatically removed from Data and moved to header variable or vice versa.
