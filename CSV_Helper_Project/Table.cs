@@ -16,7 +16,13 @@ namespace CSV_Helper_Project
         Parser parser = new Parser();
         List<string> Headers = new List<string>();
         List<List<string>> CSV_Table = new List<List<string>>();
+        /// <summary>
+        /// the number of records in the table
+        /// </summary>
         public int Length { get { return CSV_Table.Count; } }
+        /// <summary>
+        /// the number of columns in the table
+        /// </summary>
         public int ColumnLength
         {
             get
