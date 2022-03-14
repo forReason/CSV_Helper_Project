@@ -64,13 +64,54 @@ namespace CSV_Helper_Project
                 }
             }
         }
-        public string[] GetAllRecords(string columnToExtract)
+        /// <summary>
+        /// returns an individual record identified by record index
+        /// </summary>
+        /// <param name="index"></param>
+        /// <returns></returns>
+        public string[] GetRecord(int index)
+        {
+            return CSV_Table[index].ToArray();
+        }
+        /// <summary>
+        /// gets a single cell, identified by record index and column index
+        /// </summary>
+        /// <param name="row"></param>
+        /// <param name="column"></param>
+        /// <returns></returns>
+        public string GetCell(int row, int column)
+        {
+            return CSV_Table[row][column];
+        }
+        /// <summary>
+        /// gets a single cell, identified by record index and column index
+        /// </summary>
+        /// <param name="row"></param>
+        /// <param name="columnName"></param>
+        /// <returns></returns>
+        public string GetCell(int row, string columnName)
+        {
+            int columnIndex = GetColumnIndex(columnName);
+            return GetCell(row, columnIndex);
+        }
+        /// <summary>
+        /// returns a single column but of all records
+        /// </summary>
+        /// <param name="columnToExtract"></param>
+        /// <returns></returns>
+        /// <exception cref="FieldAccessException"></exception>
+        public string[] GetColumnOfAllRecords(string columnToExtract)
         {
             if (!HasHeaders) throw new FieldAccessException("Table has no Headers!");
             int columnIndex = GetColumnIndex(columnToExtract);
-            return GetAllRecords(columnIndex);
+            return GetColumnOfAllRecords(columnIndex);
         }
-        public string[] GetAllRecords(int ColumnIndexToExtract)
+        /// <summary>
+        /// returns one single column but of all records
+        /// </summary>
+        /// <param name="ColumnIndexToExtract"></param>
+        /// <returns></returns>
+        public string[] GetColumnOfAllRecords(int ColumnIndexToExtract)
         {
             if (ColumnIndexToExtract < 0) return null;
             int count = CSV_Table.Count;
@@ -118,6 +159,7 @@ namespace CSV_Helper_Project
                 List<string> cells = parsedCells[i].ToList();
                 CSV_Table.Add(cells);
             }
+            { }
         }
         /// <summary>
         /// searches for a record, matched by a search string and a columnName which should be matched. If found, removes the record.
@@ -171,6 +213,19 @@ namespace CSV_Helper_Project
             {
                 CSV_Table.Add(record.ToList());
             }
+        }
+        /// <summary>
+        /// plain append, even if the record is a duplicate
+        /// </summary>
+        /// <param name="record"></param>
+        public void AppendRecord(string[] record)
+        {
+            CSV_Table.Add(record.ToList());
+            { }
+        }
+        public void InsertRecord(string[] record, int index)
+        {
+            CSV_Table.Insert(index, record.ToList());
         }
         /// <summary>
         /// Finds the index of a record by column name

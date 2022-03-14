@@ -38,7 +38,7 @@ namespace CSV_Helper_Project
         /// <returns></returns>
         public List<string[]> ParseCSVFile(string path, char splitChar = ';', Encoding enc = null, int skiplines = 0)
         {
-            Encoding selectedEncoding = Encoding.Default;
+            Encoding selectedEncoding = Encoding.UTF8;
             if (enc != null) selectedEncoding = enc;
             String_Helper_Project.InvariantString stringHelper = new String_Helper_Project.InvariantString();
             StringBuilder sb = new StringBuilder();
@@ -81,14 +81,14 @@ namespace CSV_Helper_Project
                         lastCharWasQuote = false;
                         if (c == splitChar)
                         {
-                            string cell = stringHelper.InvaryString(sb.ToString());
+                            string cell = stringHelper.InvaryString(input: sb.ToString(),cleanUmlaute: false);
                             rowEntries.Add(cell);
                             sb.Clear();
                             quotedCell = false;
                         }
                         else if (c == '\n')
                         {
-                            string cell = stringHelper.InvaryString(sb.ToString());
+                            string cell = stringHelper.InvaryString(input: sb.ToString(), cleanUmlaute: false);
                             rowEntries.Add(cell);
                             sb.Clear();
                             table.Add(rowEntries.ToArray());
