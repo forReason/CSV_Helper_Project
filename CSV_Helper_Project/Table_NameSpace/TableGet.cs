@@ -36,6 +36,10 @@ namespace CSV_Helper_Project
         public string GetCell(int row, string columnName)
         {
             int columnIndex = GetColumnIndex(columnName);
+            if (columnIndex == -1)
+            {
+                throw new ArgumentException($"Column {columnName} could not be found!");
+            }
             return GetCell(row, columnIndex);
         }
         /// <summary>
