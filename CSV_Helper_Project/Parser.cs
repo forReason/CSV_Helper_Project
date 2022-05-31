@@ -17,11 +17,15 @@ namespace CSV_Helper_Project
             {
                 // quoting rules
                 stringBuilder.Append('"');
-                foreach (char c in content[i].Trim())
+                if (content[i]!= null)
                 {
-                    if (c == '"') stringBuilder.Append("\"\"");
-                    else stringBuilder.Append(c);
+                    foreach (char c in content[i].Trim())
+                    {
+                        if (c == '"') stringBuilder.Append("\"\"");
+                        else stringBuilder.Append(c);
+                    }
                 }
+                else stringBuilder.Append("null");
                 stringBuilder.Append('"');
                 if (i != content.Length - 1)
                 {

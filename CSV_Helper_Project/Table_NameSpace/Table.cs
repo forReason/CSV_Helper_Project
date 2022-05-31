@@ -64,7 +64,10 @@ namespace CSV_Helper_Project
                 }
             }
         }
-        
+        public string[] GetHeaders()
+        {
+            return this.Headers.ToArray();
+        }
         
         
         

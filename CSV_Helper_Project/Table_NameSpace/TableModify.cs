@@ -86,9 +86,20 @@ namespace CSV_Helper_Project
             CSV_Table.Add(record.ToList());
             { }
         }
+        public int AppendEmptyRecord()
+        {
+            string[] vs = new string[Headers.Count];
+            CSV_Table.Add(vs.ToList());
+            return CSV_Table.Count - 1;
+        }
         public void InsertRecord(string[] record, int index)
         {
             CSV_Table.Insert(index, record.ToList());
+        }
+        public void InsertEmptyRecord(int index)
+        {
+            string[] vs = new string[Headers.Count];
+            CSV_Table.Insert(index, vs.ToList());
         }
         /// <summary>
         /// adds a new column to the Table
