@@ -62,7 +62,7 @@ namespace CSV_Helper_Project
                 {
                     char c = (char)sr.Read();
                     if (c == '"')
-                    {
+                    { // quoting mechanic (encapsulating cells)
                         if (openQuotes)
                         {
                             openQuotes = false;
@@ -90,8 +90,23 @@ namespace CSV_Helper_Project
                             sb.Clear();
                             quotedCell = false;
                         }
-                        else if (c == '\n')
+                        else if (c == '\n' || c == '\r')
                         {
+                            // edgecase windows '\r\n' if c == r, check if next char is actually newline (proceed), otherwise append to sting and continue with next loop iteration
+                            if (c == '\r')
+                            { // we have an '\r', check if next comes an '\n'!
+                                if (sr.Peek() >= 0)
+                                { // actually make sure, there is still data to read and the file is not over
+                                    c = (char)sr.Read();
+                                    if (c != '\n')
+                                    { // not a newline, append and continue loop with next char
+                                        sb.Append('\r');
+                                        sb.Append(c);
+                                        continue;
+                                    }
+                                }
+                            }
+                            // c must be n, as previously checked in \r\n test. this line is over
                             string cell = stringHelper.InvaryString(input: sb.ToString(), cleanUmlaute: false);
                             rowEntries.Add(cell);
                             sb.Clear();
