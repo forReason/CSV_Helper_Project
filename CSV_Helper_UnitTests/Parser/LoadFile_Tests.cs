@@ -32,10 +32,10 @@ namespace CSV_Helper_UnitTests.Parser
             foreach (Encoding encoding in Constants.Encodings)
             {
                 File.WriteAllLines($"{testName}\\testfile_{encoding.EncodingName}.csv", lines, encoding);
-                List<string[]> fields = parser.ParseCSVFile($"{testName}\\testfile_{encoding.EncodingName}.csv", splitChar: ',', encoding);
+                List<string[]> fields = parser.ParseCSVFile($"{testName}\\testfile_{encoding.EncodingName}.csv",splitChar: ',', encoding);
                 // Headers
                 if (fields[0][0] != "Name") throw new FileLoadException($"Loaded String {fields[0][0]} does not match saved string \"Name\" ! - Encoding: {encoding.EncodingName}");
-                if (fields[0][1] != "Age") throw new FileLoadException($"Loaded String {fields[0][1]} does not match saved string \"Age\" ! - Encoding: {encoding.EncodingName}");
+                if (fields[0][1] != "Age") throw new FileLoadException($"Loaded String {fields[0][1]} does not match saved string \"Age\" ! - Encoding: {encoding.EncodingName}" );
                 if (fields[0][2] != "Gender") throw new FileLoadException($"Loaded String {fields[0][2]} does not match saved string \"Gender\" ! - Encoding: {encoding.EncodingName}");
                 // Alfons
                 if (fields[1][0] != "Alfons") throw new FileLoadException($"Loaded String {fields[1][0]} does not match saved string \"Alfons\" ! - Encoding: {encoding.EncodingName}");
@@ -108,17 +108,6 @@ namespace CSV_Helper_UnitTests.Parser
             if (fields[4][0] != "test 10") throw new FileLoadException($"Loaded String \"{fields[4][0]}\" does not match saved string \"test 10\" ! - Encoding: {encoding.EncodingName}");
             if (fields[4][1] != "test 11") throw new FileLoadException($"Loaded String \"{fields[4][1]}\" does not match saved string \"test 11\" ! - Encoding: {encoding.EncodingName}");
             if (fields[4][2] != "test 12") throw new FileLoadException($"Loaded String \"{fields[4][2]}\" does not match saved string \"test 12\" ! - Encoding: {encoding.EncodingName}");
-        }
-        [TestMethod]
-        public void Test_Loading_Sample_CSV_Files()
-        {
-            string testName = "Test_Loading_Sample_CSV_Files";
-            TestFolder_Helper.CleanFolder(testName);
-            TestFolder_Helper.CopyFilesRecursively("TestAssets", testName);
-
-            CSV_Helper_Project.Parser parser = new CSV_Helper_Project.Parser();
-            List<string[]> fields = parser.ParseCSVFile($"{testName}\\addresses.csv", splitChar: ',');
-            { }
         }
     }
 }

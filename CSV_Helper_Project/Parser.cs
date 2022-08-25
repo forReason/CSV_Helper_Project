@@ -10,7 +10,7 @@ namespace CSV_Helper_Project
     public class Parser
     {
         String_Helper_Project.TextFileFunctions String_Helper = new String_Helper_Project.TextFileFunctions();
-        public string EncodeCSVLine(string[] content, char delimiter = ';', bool trim = true, bool emptyCellsAsNull = false)
+        public string EncodeCSVLine(string[] content, char delimiter = ';', bool trim = true)
         {
             StringBuilder stringBuilder = new StringBuilder();
             for (int i = 0; i < content.Length; i++)
@@ -25,7 +25,7 @@ namespace CSV_Helper_Project
                         else stringBuilder.Append(c);
                     }
                 }
-                else if (emptyCellsAsNull) stringBuilder.Append("null");
+                else stringBuilder.Append("null");
                 stringBuilder.Append('"');
                 if (i != content.Length - 1)
                 {
