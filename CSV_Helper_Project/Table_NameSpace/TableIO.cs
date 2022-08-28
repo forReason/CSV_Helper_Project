@@ -54,11 +54,11 @@ namespace CSV_Helper_Project
             StreamWriter stream = File.AppendText(path);
             if (HasHeaders)
             {
-                stream.WriteLine(parser.EncodeCSVLine(Headers.ToArray(), delimiter,emptyCellsAsNull: emptyCellsAsNull), delimiter);
+                stream.WriteLine(parser.EncodeCSVLine(Headers.ToArray(), delimiter, emptyCellsAsNull: emptyCellsAsNull), delimiter);
             }
             foreach (List<string> line in CSV_Table)
             {
-                stream.WriteLine(parser.EncodeCSVLine(line.ToArray(),delimiter,emptyCellsAsNull: emptyCellsAsNull), delimiter);
+                stream.WriteLine(parser.EncodeCSVLine(line.ToArray(),delimiter, emptyCellsAsNull: emptyCellsAsNull), delimiter);
             }
             stream.Close();
             stream.Dispose();
