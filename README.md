@@ -1,5 +1,5 @@
 # CSV_Helper_Project
-csv library for simply oading csv files relatively quickly
+csv library for loading/saving csv files relatively quickly and easily
 This repository serves as a quick csv parser and editor. Supports CSV standard, including multi line cell values.
 As always with my projects, this library is focused around simplicity and speed. test it for your your own purpose.
 
