@@ -203,5 +203,9 @@ namespace CSV_Helper_Project
                 this.CSV_Table[i] = newRecord;
             }
         }
+        public void Reverse()
+        {
+            this.CSV_Table.Reverse();
+        }
     }
 }
