@@ -62,3 +62,32 @@ for (int i = 0; i < runs.Length; i++)
 ```
 
 ### modify a table
+```
+Table table = new Table();
+
+// Set the column names of the table
+string[] columnNames = new string[] { "ID", "Name", "Email" };
+table.SetColumnNames(columnNames);
+
+// Add a new record to the table
+string[] record1 = new string[] { "1", "John Smith", "john@example.com" };
+table.AppendRecord(record1);
+
+// Add another record to the table
+string[] record2 = new string[] { "2", "Jane Doe", "jane@example.com" };
+table.AppendRecord(record2);
+
+// Insert an empty record at the beginning of the table
+table.InsertEmptyRecord(0);
+
+// Remove the second record from the table
+table.RemoveRecord(1);
+
+// Overwrite the first record with new values
+string[] updatedRecord = new string[] { "1", "John Doe", "john.doe@example.com" };
+table.OverwriteOrInsertRecord(updatedRecord, "ID");
+
+// Search for a record with the email "jane@example.com" and remove it if it exists
+LookupValue lookup = new LookupValue("jane@example.com", "Email");
+table.RemoveRecordIfExists(lookup);
+```
