@@ -29,4 +29,8 @@ All fields are handled as text</Description>
     </None>
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="StringHelper.Net" Version="1.0.0" />
+  </ItemGroup>
+
 </Project>
