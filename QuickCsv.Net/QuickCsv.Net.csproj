@@ -4,6 +4,29 @@
     <TargetFramework>net7.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Title>QuickCsv.Net</Title>
+    <Authors>Julian Bechtold KryptoMine.ch</Authors>
+    <Description>a lightweight library to handle csv tables and files.
+All fields are handled as text</Description>
+    <Copyright>Julian Bechtold</Copyright>
+    <PackageProjectUrl>https://github.com/forReason/CSV_Helper_Project</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/forReason/CSV_Helper_Project</RepositoryUrl>
+    <PackageTags>csv;excel;string</PackageTags>
+    <PackageLicenseExpression>MIT-Modern-Variant</PackageLicenseExpression>
+    <PackageIcon>logo.png</PackageIcon>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\..\String_Helper_Project\logo.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Include="..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
 
 </Project>
