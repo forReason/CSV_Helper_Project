@@ -63,6 +63,7 @@
     <Compile Include="Parser.cs" />
     <Compile Include="Table_NameSpace\Table.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Table_NameSpace\TableEnumerator.cs" />
     <Compile Include="Table_NameSpace\TableGet.cs" />
     <Compile Include="Table_NameSpace\TableIO.cs" />
     <Compile Include="Table_NameSpace\TableModify.cs" />

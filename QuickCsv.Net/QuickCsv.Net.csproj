@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net7.0</TargetFramework>
+    <TargetFrameworks>net7.0;net6.0</TargetFrameworks>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
@@ -14,12 +14,14 @@ All fields are handled as text</Description>
     <RepositoryUrl>https://github.com/forReason/CSV_Helper_Project</RepositoryUrl>
     <PackageTags>csv;excel;string</PackageTags>
     <PackageLicenseExpression>MIT-Modern-Variant</PackageLicenseExpression>
-    <PackageIcon>logo.png</PackageIcon>
+    <PackageIcon>Logo.png</PackageIcon>
     <PackageReadmeFile>README.md</PackageReadmeFile>
+    <Version>1.0.1</Version>
+    <PackageReleaseNotes>target .net 6 &amp; 7</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="..\..\String_Helper_Project\logo.png">
+    <None Include="..\Logo.png">
       <Pack>True</Pack>
       <PackagePath>\</PackagePath>
     </None>
@@ -30,7 +32,7 @@ All fields are handled as text</Description>
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="StringHelper.Net" Version="1.0.0" />
+    <PackageReference Include="StringHelper.Net" Version="1.0.1" />
   </ItemGroup>
 
 </Project>

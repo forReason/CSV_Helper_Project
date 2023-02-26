@@ -1,6 +1,9 @@
-﻿namespace QuickCsv.Net.Table_NS
+﻿using QuickCsv.Net.Table_NameSpace;
+using System.Collections;
+
+namespace QuickCsv.Net.Table_NS
 {
-    public partial class Table
+    public partial class Table : IEnumerable
     {
         public Table(bool hasHeaders = false)
         {
@@ -60,6 +63,10 @@
         public string[] GetHeaders()
         {
             return this.Headers.ToArray();
+        }
+        public IEnumerator GetEnumerator()
+        {
+            return (IEnumerator)new TableEnumerator(CSV_Table);
         }
     }
 }

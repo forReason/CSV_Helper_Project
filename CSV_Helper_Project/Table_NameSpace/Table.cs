@@ -1,13 +1,10 @@
-﻿using System;
+﻿using CSV_Helper_Project.Table_NameSpace;
+using System.Collections;
 using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CSV_Helper_Project
 {
-    public partial class Table
+    public partial class Table : IEnumerable
     {
         public Table(bool hasHeaders = false)
         {
@@ -68,8 +65,11 @@ namespace CSV_Helper_Project
         {
             return this.Headers.ToArray();
         }
-        
-        
-        
+
+        public IEnumerator GetEnumerator()
+        {
+            return (IEnumerator)new TableEnumerator(CSV_Table);
+        }
+
     }
 }
