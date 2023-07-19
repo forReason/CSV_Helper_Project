@@ -22,7 +22,7 @@ namespace CSV_Helper_UnitTests.Parser
                 index++;
             }
             Assert.Equal(myTable.Length, records.Count);
-            Assert.Equal(records[0][0], "John");
+            Assert.Equal(records[3][0], "Stephen");
         }
     }
 }

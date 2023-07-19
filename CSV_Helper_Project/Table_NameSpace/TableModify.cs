@@ -16,6 +16,7 @@ namespace CSV_Helper_Project
         {
             this._HasHeaders = true;
             this.Headers = names.ToList();
+            ContentChanged = true;
         }
 
         /// <summary>
@@ -28,12 +29,14 @@ namespace CSV_Helper_Project
             if (!HasHeaders) throw new FieldAccessException("Table has no Headers!");
             int columnIndex = GetColumnIndex(lookup.ColumnName);
             RemoveRecordIfExists(GetLookupIndexValue(lookup));
+            ContentChanged = true;
         }
         public void RemoveRecord(int index)
         {
             if (index < 0) throw new FieldAccessException($"index {index} is smaller than 0!");
             if (index > CSV_Table.Count) throw new FieldAccessException($"index {index} is bigger than table length {CSV_Table.Count}!");
             CSV_Table.RemoveAt(index);
+            ContentChanged = true;
         }
         /// <summary>
         /// searches for a record, matched by a search string and a columnindex which should be matched. If found, removes the record.
@@ -46,6 +49,7 @@ namespace CSV_Helper_Project
             if (index >= 0)
             {
                 CSV_Table.RemoveAt(index);
+                ContentChanged = true;
             }
         }
         /// <summary>
@@ -58,6 +62,7 @@ namespace CSV_Helper_Project
             if (!HasHeaders) throw new FieldAccessException("Table has no Headers!");
             int columnIndex = GetColumnIndex(columnToMatch);
             OverwriteOrInsertRecord(record, columnIndex);
+            ContentChanged = true;
         }
         /// <summary>
         /// if the same record is found, it gets overwritten. If not inserted into the table.
@@ -76,6 +81,7 @@ namespace CSV_Helper_Project
             {
                 CSV_Table.Add(record.ToList());
             }
+            ContentChanged = true;
         }
         /// <summary>
         /// plain append, even if the record is a duplicate
@@ -84,6 +90,7 @@ namespace CSV_Helper_Project
         public void AppendRecord(string[] record)
         {
             CSV_Table.Add(record.ToList());
+            ContentChanged = true;
             { }
         }
         public int AppendEmptyRecord()
@@ -95,11 +102,13 @@ namespace CSV_Helper_Project
         public void InsertRecord(string[] record, int index)
         {
             CSV_Table.Insert(index, record.ToList());
+            ContentChanged = true;
         }
         public void InsertEmptyRecord(int index)
         {
             string[] vs = new string[Headers.Count];
             CSV_Table.Insert(index, vs.ToList());
+            ContentChanged = true;
         }
         /// <summary>
         /// adds a new column to the Table
@@ -125,6 +134,7 @@ namespace CSV_Helper_Project
             {
                 this.CSV_Table[i].Add(defaultValue);
             }
+            ContentChanged = true;
         }
         public void SetCell(string columnName, int row, string value)
         {
@@ -134,6 +144,7 @@ namespace CSV_Helper_Project
                 throw new Exception("column could not be matched!");
             }
             this.CSV_Table[row][columnIndex] = value;
+            ContentChanged = true;
         }
         public void RemoveColumn(string columnName)
         {
@@ -147,6 +158,7 @@ namespace CSV_Helper_Project
             {
                 this.CSV_Table[i].RemoveAt(columnIndex);
             }
+            ContentChanged = true;
         }
         public void RenameColumn(string oldName, string newName)
         {
@@ -161,6 +173,7 @@ namespace CSV_Helper_Project
                 throw new ArgumentException($"New Column with Name {newName} exists already!");
             }
             this.Headers[oldColumnIndex] = newName;
+            ContentChanged = true;
         }
         public void ReplaceValue(string columnName, string oldValue, string newValue)
         {
@@ -176,6 +189,7 @@ namespace CSV_Helper_Project
                     this.CSV_Table[i][columnIndex] = newValue;
                 }
             }
+            ContentChanged = true;
         }
         public void ReorderColumnNames(string[] headers)
         {
@@ -202,10 +216,12 @@ namespace CSV_Helper_Project
                 }
                 this.CSV_Table[i] = newRecord;
             }
+            ContentChanged = true;
         }
         public void Reverse()
         {
             this.CSV_Table.Reverse();
+            ContentChanged = true;
         }
     }
 }

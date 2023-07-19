@@ -39,6 +39,7 @@ namespace CSV_Helper_Project
                 CSV_Table.Add(cells);
             }
             { }
+            ContentChanged = false;
         }
         /// <summary>
         /// writes the csv table with headers to List
@@ -62,6 +63,7 @@ namespace CSV_Helper_Project
             }
             stream.Close();
             stream.Dispose();
+            ContentChanged = false;
         }
     }
 }

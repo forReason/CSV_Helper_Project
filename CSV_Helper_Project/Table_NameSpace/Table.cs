@@ -13,6 +13,7 @@ namespace CSV_Helper_Project
         
         List<string> Headers = new List<string>();
         List<List<string>> CSV_Table = new List<List<string>>();
+        public bool ContentChanged { get; private set; }
         /// <summary>
         /// the number of records in the table
         /// </summary>

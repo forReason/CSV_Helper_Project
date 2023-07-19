@@ -13,6 +13,10 @@ namespace QuickCsv.Net.Table_NS
         List<string> Headers = new List<string>();
         List<List<string>> CSV_Table = new List<List<string>>();
         /// <summary>
+        /// indicates that the Table content has been changed since last save
+        /// </summary>
+        public bool ContentChanged { get; private set; }
+        /// <summary>
         /// the number of records in the table
         /// </summary>
         public int Length { get { return CSV_Table.Count; } }

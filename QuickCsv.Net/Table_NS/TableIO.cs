@@ -33,7 +33,7 @@ namespace QuickCsv.Net.Table_NS
                 List<string> cells = parsedCells[i].ToList();
                 CSV_Table.Add(cells);
             }
-            { }
+            ContentChanged = false;
         }
         /// <summary>
         /// writes the csv table with headers to List
@@ -57,6 +57,7 @@ namespace QuickCsv.Net.Table_NS
             }
             stream.Close();
             stream.Dispose();
+            ContentChanged = false;
         }
     }
 }
