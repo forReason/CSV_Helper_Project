@@ -16,8 +16,11 @@ All fields are handled as text</Description>
     <PackageLicenseExpression>MIT-Modern-Variant</PackageLicenseExpression>
     <PackageIcon>Logo.png</PackageIcon>
     <PackageReadmeFile>README.md</PackageReadmeFile>
-    <Version>1.0.3</Version>
-    <PackageReleaseNotes>1.0.3: 
+    <Version>1.0.4</Version>
+    <PackageReleaseNotes>1.0.4:
+- Table.LoadFromFile now automatically updates the target path, so that save can be called easily.
+
+1.0.3: 
  - added capability to store a target file name to the table and then call .Save()
 - This can come in handy when dealing with collections of Tables
 

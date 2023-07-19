@@ -9,6 +9,9 @@ namespace QuickCsv.Net.Table_NS
         /// <summary>
         /// Loads a csv table from file. Dont forget to specify before if the table has headers or not for better performance
         /// </summary>
+        /// <remarks>
+        /// automatically sets TargetFile for <see cref="Table.Save(char, bool)"/>
+        /// </remarks>
         /// <param name="path"></param>
         /// <param name="hasHeaders"></param>
         /// <param name="delimiter"></param>
@@ -35,6 +38,7 @@ namespace QuickCsv.Net.Table_NS
                 CSV_Table.Add(cells);
             }
             ContentChanged = false;
+            TargetFile = new FileInfo(path);
         }
         /// <summary>
         /// writes the csv table with headers to List
