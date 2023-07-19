@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System.IO;
+using System.Text;
 using System.Xml.Linq;
 
 namespace QuickCsv.Net.Table_NS
@@ -47,6 +48,13 @@ namespace QuickCsv.Net.Table_NS
         /// <param name="delimiter"></param>
         public void WriteTableToFile(string path, char delimiter = ';',bool emptyCellsAsNull = false)
         {
+            FileInfo file = new FileInfo(path);
+            // Check if directory exists
+            if (file.Directory != null && !file.Directory.Exists)
+            {
+                // If directory does not exist, create it
+                file.Directory.Create();
+            }
             if (File.Exists(path))
             {
                 File.Delete(path);
