@@ -16,8 +16,13 @@ All fields are handled as text</Description>
     <PackageLicenseExpression>MIT-Modern-Variant</PackageLicenseExpression>
     <PackageIcon>Logo.png</PackageIcon>
     <PackageReadmeFile>README.md</PackageReadmeFile>
-    <Version>1.0.1</Version>
-    <PackageReleaseNotes>target .net 6 &amp; 7</PackageReleaseNotes>
+    <Version>1.0.3</Version>
+    <PackageReleaseNotes>1.0.3: 
+ - added capability to store a target file name to the table and then call .Save()
+- This can come in handy when dealing with collections of Tables
+
+1.0.2:
+- added a tracking variable which tracks if changes have been made to the table since last loading or saving it</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>

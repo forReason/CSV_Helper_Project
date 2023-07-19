@@ -1,4 +1,5 @@
 ﻿using System.Text;
+using System.Xml.Linq;
 
 namespace QuickCsv.Net.Table_NS
 {
@@ -12,7 +13,7 @@ namespace QuickCsv.Net.Table_NS
         /// <param name="hasHeaders"></param>
         /// <param name="delimiter"></param>
         /// <param name="append">determines if the table should be cleared before loading or data should be appended</param>
-        public void LoadFromFile(string path, bool hasHeaders = false, char delimiter = ';', bool append = false, Encoding enc = null, int skipLines = 0)
+        public void LoadFromFile(string path, bool hasHeaders = false, char delimiter = ';', bool append = false, Encoding? enc = null, int skipLines = 0)
         {
             if (!File.Exists(path)) return;
             if (!append)
@@ -58,6 +59,20 @@ namespace QuickCsv.Net.Table_NS
             stream.Close();
             stream.Dispose();
             ContentChanged = false;
+        }
+        /// <summary>
+        /// saves the Table to the file information stored in this.TargetFile
+        /// </summary>
+        /// <param name="delimiter">the delimiting character between the cells</param>
+        /// <param name="emptyCellsAsNull">wether empty cells should be `null` or `""`</param>
+        /// <exception cref="NullReferenceException">if this.TargetFile is not set</exception>
+        public void Save(char delimiter = ';', bool emptyCellsAsNull = false)
+        {
+            if (TargetFile == null)
+            {
+                throw new NullReferenceException(nameof(TargetFile));
+            }
+            WriteTableToFile(TargetFile.FullName, delimiter, emptyCellsAsNull);
         }
     }
 }

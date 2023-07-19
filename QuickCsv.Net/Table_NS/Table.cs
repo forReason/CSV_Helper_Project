@@ -5,13 +5,15 @@ namespace QuickCsv.Net.Table_NS
 {
     public partial class Table : IEnumerable
     {
-        public Table(bool hasHeaders = false)
+        public Table(bool hasHeaders = false, FileInfo? target = null)
         {
             this.HasHeaders = hasHeaders;
+            TargetFile = target;
         }
         
         List<string> Headers = new List<string>();
         List<List<string>> CSV_Table = new List<List<string>>();
+        public FileInfo? TargetFile { get; set; }
         /// <summary>
         /// indicates that the Table content has been changed since last save
         /// </summary>
