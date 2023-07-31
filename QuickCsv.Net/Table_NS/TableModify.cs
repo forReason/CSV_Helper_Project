@@ -110,7 +110,7 @@ namespace QuickCsv.Net.Table_NS
         /// </summary>
         /// <param name="columnName"></param>
         /// <param name="defaultValue"></param>
-        /// <exception cref="ArgumentException"></exception>
+        /// <exception cref="ArgumentException">column already exists</exception>
         public void AddColumn(string columnName = null, string defaultValue = "")
         {
             if (this.HasHeaders)
@@ -121,7 +121,7 @@ namespace QuickCsv.Net.Table_NS
                 }
                 if (GetColumnIndex(columnName) != -1)
                 {
-                    throw new ArgumentException("Column with the same name Exists already!");
+                    throw new ArgumentException($"Column with the name {columnName} Exists already!");
                 }
                 this.Headers.Add(columnName);
             }
@@ -131,16 +131,29 @@ namespace QuickCsv.Net.Table_NS
             }
             ContentChanged = true;
         }
+        /// <summary>
+        /// sets the value of a target cell, replacing any value in that cell
+        /// </summary>
+        /// <param name="columnName">the selected column</param>
+        /// <param name="row">the selected row</param>
+        /// <param name="value">the value to set</param>
+        /// <exception cref="ArgumentException"></exception>
         public void SetCell(string columnName, int row, string value)
         {
             int columnIndex = GetColumnIndex(columnName);
             if (columnIndex == -1)
             {
-                throw new Exception("column could not be matched!");
+                throw new ArgumentException($"Colummn {columnName} could not be found!");
             }
             this.CSV_Table[row][columnIndex] = value;
             ContentChanged = true;
         }
+        /// <summary>
+        /// cemoves a whole column
+        /// </summary>
+        /// <remarks>irreversible, can be resource intense for large tables</remarks>
+        /// <param name="columnName"></param>
+        /// <exception cref="ArgumentException"></exception>
         public void RemoveColumn(string columnName)
         {
             int columnIndex = GetColumnIndex(columnName);
@@ -155,6 +168,12 @@ namespace QuickCsv.Net.Table_NS
             }
             ContentChanged = true;
         }
+        /// <summary>
+        /// renames a given column
+        /// </summary>
+        /// <param name="oldName"></param>
+        /// <param name="newName"></param>
+        /// <exception cref="ArgumentException">column not found or new column duplicate</exception>
         public void RenameColumn(string oldName, string newName)
         {
             int oldColumnIndex = GetColumnIndex(oldName);
@@ -170,6 +189,13 @@ namespace QuickCsv.Net.Table_NS
             this.Headers[oldColumnIndex] = newName;
             ContentChanged = true;
         }
+        /// <summary>
+        /// searches and replaces certain cells. No wildcards or anything. Just the full cell content
+        /// </summary>
+        /// <param name="columnName">the column which to search</param>
+        /// <param name="oldValue">value to be replaced</param>
+        /// <param name="newValue">replacement value</param>
+        /// <exception cref="ArgumentException"></exception>
         public void ReplaceValue(string columnName, string oldValue, string newValue)
         {
             int columnIndex = GetColumnIndex(columnName);
@@ -186,6 +212,14 @@ namespace QuickCsv.Net.Table_NS
             }
             ContentChanged = true;
         }
+        /// <summary>
+        /// reorganize the columns by the assigned template
+        /// </summary>
+        /// <remarks>new columns must match the old columns, just in a different order!<br/>
+        /// can be very resource intense depending on table size!
+        /// </remarks>
+        /// <param name="headers"></param>
+        /// <exception cref="ArgumentException">table headers do not match</exception>
         public void ReorderColumnNames(string[] headers)
         {
             if (headers.Length != this.Headers.Count)
@@ -213,6 +247,9 @@ namespace QuickCsv.Net.Table_NS
             }
             ContentChanged = true;
         }
+        /// <summary>
+        /// reverses the table row order
+        /// </summary>
         public void Reverse()
         {
             this.CSV_Table.Reverse();

@@ -126,7 +126,7 @@ namespace CSV_Helper_Project
                 }
                 if (GetColumnIndex(columnName) != -1)
                 {
-                    throw new ArgumentException("Column with the same name Exists already!");
+                    throw new ArgumentException($"Column with the same name {columnName} Exists already!");
                 }
                 this.Headers.Add(columnName);
             }
@@ -141,7 +141,7 @@ namespace CSV_Helper_Project
             int columnIndex = GetColumnIndex(columnName);
             if (columnIndex == -1)
             {
-                throw new Exception("column could not be matched!");
+                throw new ArgumentException($"Colummn {columnName} could not be found!");
             }
             this.CSV_Table[row][columnIndex] = value;
             ContentChanged = true;
