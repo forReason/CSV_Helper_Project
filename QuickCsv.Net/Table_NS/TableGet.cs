@@ -95,6 +95,14 @@
             }
             return -1;
         }
+        /// <summary>
+        /// Retrieves a unique set of values from a specified column.
+        /// </summary>
+        /// <param name="columnName">The name of the column from which to retrieve unique values.</param>
+        /// <returns>An array of unique values from the specified column, or null if the column is not found.</returns>
+        /// <remarks>
+        /// This method scans the entire column to collate unique values present in it.
+        /// </remarks>
         public string[] GetUniqueColumnValues(string columnName)
         {
             List<string> records = new List<string>();
@@ -113,7 +121,19 @@
             }
             return records.ToArray();
         }
-        public string[] GetUniqueColumnValues(string columnName, LookupValue filter)
+        /// <summary>
+        /// Retrieves a unique set of values from a specified column, filtered by another column's value.
+        /// </summary>
+        /// <param name="columnName">The name of the column from which to retrieve unique values.</param>
+        /// <param name="filter">A lookup value that specifies the column and value to filter the records by.</param>
+        /// <returns>
+        /// An array of unique values from the specified column after filtering by the specified condition, 
+        /// or null if the main column or filter column is not found.
+        /// </returns>
+        /// <remarks>
+        /// This method scans the entire table and includes only the rows that meet the filter condition to gather unique values.
+        /// </remarks>
+        public string[]? GetUniqueColumnValues(string columnName, LookupValue filter)
         {
             List<string> records = new List<string>();
             int columnIndex = GetColumnIndex(columnName);
