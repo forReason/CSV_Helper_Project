@@ -12,12 +12,20 @@ All fields are handled as text</Description>
     <Copyright>Julian Bechtold</Copyright>
     <PackageProjectUrl>https://github.com/forReason/CSV_Helper_Project</PackageProjectUrl>
     <RepositoryUrl>https://github.com/forReason/CSV_Helper_Project</RepositoryUrl>
-    <PackageTags>csv;excel;string</PackageTags>
+    <PackageTags>CSV;CSV Parser;CSV Manipulation;Data Management;Table Operations;File Processing;CSV Headers;Data Search;CSV Export;CSV Import;</PackageTags>
     <PackageLicenseExpression>MIT-Modern-Variant</PackageLicenseExpression>
     <PackageIcon>Logo.png</PackageIcon>
     <PackageReadmeFile>README.md</PackageReadmeFile>
-    <Version>1.0.5</Version>
-    <PackageReleaseNotes>1.0.5:
+    <Version>1.1.0</Version>
+    <PackageReleaseNotes>1.1.0
+- finalize documentation comments
+- null value return improvement
+
+1.0.6
+- improves documentation
+- improves an error message when a columnname could not be matched
+
+1.0.5:
 - when saving, creates the directory first if it does not exist
 
 1.0.4:
