@@ -1,6 +1,4 @@
-﻿using System.IO;
-using System.Text;
-using System.Xml.Linq;
+﻿using System.Text;
 
 namespace QuickCsv.Net.Table_NS
 {

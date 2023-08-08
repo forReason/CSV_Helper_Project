@@ -1,5 +1,4 @@
-﻿
-namespace QuickCsv.Net.Table_NS
+﻿namespace QuickCsv.Net.Table_NS
 {
     public partial class Table
     {
