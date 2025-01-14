@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>net7.0;net6.0</TargetFrameworks>
+    <TargetFrameworks>net6.0;net7.0;net8.0</TargetFrameworks>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
@@ -16,8 +16,13 @@ All fields are handled as text</Description>
     <PackageLicenseExpression>MIT-Modern-Variant</PackageLicenseExpression>
     <PackageIcon>Logo.png</PackageIcon>
     <PackageReadmeFile>README.md</PackageReadmeFile>
-    <Version>1.1.0</Version>
-    <PackageReleaseNotes>1.1.0
+    <Version>1.2.0</Version>
+    <PackageReleaseNotes>1.2.0
+- update packages
+- add .net 8.0 support
+- revoke .net 4.5 support. 1.1 is the last version with .net 4.5 support
+
+1.1.0
 - finalize documentation comments
 - null value return improvement
 
@@ -51,7 +56,7 @@ All fields are handled as text</Description>
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="StringHelper.Net" Version="1.0.1" />
+    <PackageReference Include="StringHelper.Net" Version="1.4.1" />
   </ItemGroup>
 
 </Project>

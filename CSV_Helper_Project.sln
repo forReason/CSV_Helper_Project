@@ -3,14 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.32014.148
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSV_Helper_Project", "CSV_Helper_Project\CSV_Helper_Project.csproj", "{228E75A2-6685-4DDC-AF2F-355E3EF7E127}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "String_Helper_Project", "..\String_Helper_Project\String_Helper_Project\String_Helper_Project.csproj", "{367774F4-70F5-44FA-9DD4-B3676F665123}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSV_Helper_UnitTests", "CSV_Helper_UnitTests\CSV_Helper_UnitTests.csproj", "{7A6130DA-1B75-4EF5-94BD-5D7F2A06A374}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTest_Helper_Library_Framework", "..\UnitTest_Helper_Library_Solution\UnitTest_Helper_Library_Framework\UnitTest_Helper_Library_Framework.csproj", "{6D09235F-204C-447A-9FD5-F3E89BCADA30}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "QuickCsv.Net", "QuickCsv.Net\QuickCsv.Net.csproj", "{710D9B88-8D8F-4120-8745-6E49C507D99A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuickCsv_XunitTests", "QuickCSV_XunitTests\QuickCsv_XunitTests.csproj", "{19E21835-1E36-4B1C-8911-472FFEE0655A}"
@@ -21,22 +13,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{228E75A2-6685-4DDC-AF2F-355E3EF7E127}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{228E75A2-6685-4DDC-AF2F-355E3EF7E127}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{228E75A2-6685-4DDC-AF2F-355E3EF7E127}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{228E75A2-6685-4DDC-AF2F-355E3EF7E127}.Release|Any CPU.Build.0 = Release|Any CPU
-		{367774F4-70F5-44FA-9DD4-B3676F665123}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{367774F4-70F5-44FA-9DD4-B3676F665123}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{367774F4-70F5-44FA-9DD4-B3676F665123}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{367774F4-70F5-44FA-9DD4-B3676F665123}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7A6130DA-1B75-4EF5-94BD-5D7F2A06A374}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7A6130DA-1B75-4EF5-94BD-5D7F2A06A374}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7A6130DA-1B75-4EF5-94BD-5D7F2A06A374}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7A6130DA-1B75-4EF5-94BD-5D7F2A06A374}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6D09235F-204C-447A-9FD5-F3E89BCADA30}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6D09235F-204C-447A-9FD5-F3E89BCADA30}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6D09235F-204C-447A-9FD5-F3E89BCADA30}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6D09235F-204C-447A-9FD5-F3E89BCADA30}.Release|Any CPU.Build.0 = Release|Any CPU
 		{710D9B88-8D8F-4120-8745-6E49C507D99A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{710D9B88-8D8F-4120-8745-6E49C507D99A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{710D9B88-8D8F-4120-8745-6E49C507D99A}.Release|Any CPU.ActiveCfg = Release|Any CPU

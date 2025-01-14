@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -9,7 +10,7 @@ namespace CSV_Helper_Project
 {
     public class Parser
     {
-        String_Helper_Project.TextFileFunctions String_Helper = new String_Helper_Project.TextFileFunctions();
+        St .TextFileFunctions String_Helper = new String_Helper_Project.TextFileFunctions();
         public string EncodeCSVLine(string[] content, char delimiter = ';',bool emptyCellsAsNull = false, bool trim = true)
         {
             StringBuilder stringBuilder = new StringBuilder();

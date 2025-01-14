@@ -1,5 +1,4 @@
 ﻿using System.Text;
-using UnitTest_Helper_Library_Framework;
 
 namespace CSV_Helper_UnitTests.Parser
 {
@@ -13,7 +12,6 @@ namespace CSV_Helper_UnitTests.Parser
         public void Test_Loading_Encoded_Files()
         {
             string testName = "Test_Loading_Encoded_Files";
-            TestFolder_Helper.CleanFolder(testName);
             string[] lines =
             {
                 "\"Name\",\"Age\",Gender",
@@ -52,7 +50,6 @@ namespace CSV_Helper_UnitTests.Parser
         public void Test_Loading_Multiline_Records()
         {
             string testName = "Test_Loading_Multiline_Records";
-            TestFolder_Helper.CleanFolder(testName);
             string[] testRecords =
             {
                 $"Test Person{Environment.NewLine}" +
